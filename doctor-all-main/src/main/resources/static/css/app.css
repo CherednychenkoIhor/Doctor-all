@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Numans');
+html, body {
+    background: url('https://i.ibb.co/Np5f4jB/0076ff-5dc7f4-ffffff-1920-1080.png') no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    font-family: 'Numans', sans-serif;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+.sort {
+    cursor: pointer;
+    margin-right: 2em;
+}
+i {
+    color: blue!important;
+    padding: 0 10px;
+}
+
+.btn-outline-primary:hover {
+    color: white!important;
+}
+
+.a5 {
+    border-radius: 10px;
+}/*
+.carousel-inner {
+    height: 67em;
+}*/
+/*.carousel-inner img {
+    !*transform: translateY(-10%);*!
+    height: 100%;
+}
+
+@media (min-width:1100px) {
+    .carousel-inner img {
+        width: 100%;
+    }
+}*/
+
+.navbar-brad img {
+    width: 150px;
+}
+
+.navbar-nav li {
+    padding-right: 20px;
+}
+
+.carousel-caption {/*
+    position: absolute;
+    top: 70%;
+    transform: translateY(-80%);*/
+    text-shadow: 1px 1px 10px #000;
+}
+/* Remove border from toggler */
+.navbar-toggler {
+    border: 0 !important;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border: 0 !important;
+}
+
+/*--------------------------------------------------------------
+# About
+--------------------------------------------------------------*/
+.about {
+    padding: 0;
+   /* margin-top: 40px;*/
+}
+.about .container {
+    background-color: #f7f8f9;
+    padding: 60px 50px;
+}
+@media (max-width: 992px) {
+    .about .container {
+        padding: 30px;
+    }
+}
+.about .content h3 {
+    font-weight: 400;
+    font-size: 32px;
+    color: #364146;
+    font-family: "Poppins", sans-serif;
+}
+.about .content ul {
+    list-style: none;
+    padding: 0;
+}
+.about .content ul li {
+    padding-bottom: 10px;
+}
+.about .content ul i {
+    font-size: 20px;
+    padding-right: 4px;
+    color: #28a745;
+}
+.about .content p:last-child {
+    margin-bottom: 0;
+}
+

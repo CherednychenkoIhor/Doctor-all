@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout}">
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+          integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link href="/css/footer_style.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<div layout:fragment="content">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <section layout:fragment="open_content"></section>
+    <footer class="text-center text-lg-start text-muted" style="background-color: #1F1F1F">
+        <!-- Section: Social media -->
+        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
+                 style="border-bottom: #1F1F1F!important;">
+            <div class="me-5 d-none d-lg-block"></div>
+            <div></div>
+        </section>
+        <!-- Section: Social media -->
+
+        <!-- Section: Links  -->
+        <section class="">
+            <div class="container text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <!-- Content -->
+                        <h6 class="text-uppercase fw-bold mb-4" style="color: #F8F9FB">
+                            <i class="fas fa-heartbeat"></i>
+                            DoctorAll
+                        </h6>
+                        <p style="color: rgba(248,249,251,0.69); text-align:left">
+                            The clinic will help you find your health.
+                            Thanks to the skill of our doctors,
+                            the quality of service is always at its best.
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4" style="color: #F8F9FB">
+                            Departments
+                        </h6>
+                        <p style="color: rgba(248,249,251,0.69)">
+                            <a href="#" class="text-decoration-none text-decoration-none text-reset">Dental</a>
+                        </p>
+                        <p style="color: rgba(248,249,251,0.69)">
+                            <a href="#" class="text-decoration-none text-reset">Cardiology</a>
+                        </p>
+                        <p style="color: rgba(248,249,251,0.69)">
+                            <a href="#" class="text-decoration-none text-reset">Psychology</a>
+                        </p>
+                        <p style="color: rgba(248,249,251,0.69)">
+                            <a href="#" class="text-decoration-none text-reset">Orthopedics</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4" style="color: #F8F9FB">
+                            Useful links
+                        </h6>
+                        <p style="color: rgba(248,249,251,0.69)">
+                            <a href="#" class="text-decoration-none text-reset">Pricing</a>
+                        </p>
+                        <p style="color: rgba(248,249,251,0.69)">
+                            <a href="#" class="text-decoration-none text-reset">About us</a>
+                        </p>
+                        <p style="color: rgba(248,249,251,0.69)">
+                            <a href="#" class="text-decoration-none text-reset">Contact us</a>
+                        </p>
+                        <p style="color: rgba(248,249,251,0.69)">
+                            <a href="#" class="text-decoration-none text-reset">Help</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4" style="color: #F8F9FB">
+                            Contact
+                        </h6>
+                        <p style="color: rgba(248,249,251,0.69)"><i class="fas fa-home me-3"></i> Khreshchatyk St., 24, Kyiv
+                        </p>
+                        <p style="color: rgba(248,249,251,0.69)">
+                            <i class="fas fa-envelope me-3"></i>
+                            doctorAll@company.com
+                        </p>
+                        <p style="color: rgba(248,249,251,0.69)"><i class="fas fa-phone me-3"></i> +38 (098) 123-45-67</p>
+                        <p style="color: rgba(248,249,251,0.69)"><i class="fas fa-print me-3"></i> +38 (098) 123-45-67</p>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+        </section>
+        <!-- Section: Links  -->
+
+        <!-- Section: Empty -->
+        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
+                 style="border-bottom: #1F1F1F!important;">
+            <div class="me-5 d-none d-lg-block"></div>
+            <div></div>
+        </section>
+        <!-- Section: Empty -->
+
+        <!-- Copyright -->
+        <div class="text-center p-4" style="background-color: black;">
+            <p style="color: rgba(248,249,251,0.69)">
+                Copyright ©
+                <script>document.write(new Date().getFullYear());</script>
+                Final Project | Made with
+                <i class="far fa-heart" style="color: blue!important;"></i>
+                by Ihor Cherednychenko & Lilya Pohorielova
+            </p>
+        </div>
+        <!-- Copyright -->
+    </footer>
+</div>
+</body>
+</html>

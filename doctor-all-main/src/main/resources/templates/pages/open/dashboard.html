@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoctorAll - Welcome</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+          integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../../../../../css/app.css" th:href="@{/css/app.css}">
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../../../../../css/footer_style.css" th:href="@{/css/footer_style.css}">
+    <style>
+        .parallax {
+            background: url("https://wallpaperaccess.com/full/1282794.jpg") no-repeat fixed 100%;
+            text-align: center;
+        }
+
+        .parallax-inner {
+            padding-top: 30%;
+            padding-bottom: 30%;
+        }
+
+        .paral {
+            text-align: center;
+            font-size: 500%;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px #000000;
+            letter-spacing: 3px;
+        }
+
+        .btn-primary:hover, .btn-outline-primary:hover {
+            color: white !important;
+        }
+
+        .a5:hover {
+            color: white !important;
+        }
+
+        .card-text {
+            font-size: 16px;
+            line-height: 28px;
+            color: #727272;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .inner {
+            overflow: hidden;
+            height: 300px;
+        }
+
+        .inner img {
+            transition: all 0.7s ease;
+        }
+
+        .inner:hover img {
+            transform: scale(1.2);
+        }
+
+        .blue {
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        .blue:hover {
+            color: blue;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- NavBar Start -->
+<nav class="navbar fixed-top navbar-expand-xl navbar-light bg-light shadow">
+    <div class="container-fluid">
+        <a class="navbar-brand abs" th:href="@{/open/dashboard}">
+            <i class="fas fa-heartbeat"></i>
+            DoctorAll
+        </a>
+        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-item nav-link a1" onclick="showHideMenu();" th:href="@{/open/dashboard}">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link a2" th:href="@{/open/department}">Departments</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link a3" th:href="@{/open/doctors}">Doctors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link a3" th:href="@{/open/about}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link a3" th:href="@{/contact}">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-item nav-link a3" th:href="@{/vaccinations/all}">Vaccination</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        Register As
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" th:href="@{/patient/registration}">Patient</a></li>
+                        <hr class="dropdown-divider">
+                        <li><a class="dropdown-item" th:href="@{/doctor/registration}">Doctor</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="navbar-nav w-100 justify-content-end">
+                <li class="nav-item">
+                    <a class="btn btn-outline-primary a5" th:href="@{/login}">Make an appointment</a>
+                </li>
+                <hr class="hhh" style="color: transparent; padding: 0.1em; margin: 0">
+                <li class="nav-item">
+                    <a class="btn btn-outline-primary a5" th:href="@{/login}">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- NavBar End -->
+
+<!-- Carousel Start -->
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="padding-top: 50px">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="/images/ban1.jpg" class="w-100" alt="..."/>
+            <div class="carousel-caption">
+                <h1 class="display-2">Health Care</h1>
+                <h3>For All Family</h3>
+                <h5>The most valuable thing is your health!</h5>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="/images/ban2.jpg" class="w-100" alt="..."/>
+        </div>
+        <div class="carousel-item">
+            <img src="/images/ban3.png" class="w-100" alt="..."/>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<!-- Carousel End -->
+
+<!-- Welcome Start -->
+<div class="container-fluid padding" style="background-color: #f3f9fe; padding-top: 3%; padding-bottom: 3%;">
+    <div class="row welcome text-center">
+        <div class="col-12">
+            <h2 class="display-4" style="margin-bottom: 3%;">Welcome to DoctorAll</h2>
+        </div>
+        <hr style="height:2px;width:30%;margin-left:35%;color:#0000ff;background-color:#0000ff; margin-bottom: 3%;">
+    </div>
+    <div class="row text-center">
+        <div class="col-lg-6" data-aos="zoom-in" style="padding-top: 1%">
+            <img src="https://metrolinamed.com/wp-content/uploads/2020/11/doctor_consultation.jpg"
+                 class="img-fluid" alt="">
+        </div>
+        <div class="col-lg-6 d-flex flex-column justify-contents-center" data-aos="fade-left" style="padding-top: 1%">
+            <div class="content pt-4 pt-lg-0">
+                <h3>Learn more about us</h3>
+                <p class="fst-italic">
+                    DoctorAll is an acute General Public Voluntary Hospital.
+                    The current Hospital Constitution was approved in
+                    <script>document.write(new Date().getFullYear());</script>.
+                </p>
+                <ul>Our goals are to:
+                    <li style="list-style-type: none;">
+                        <i class="far fa-check-circle"></i>
+                        Continuously improve all our services through quality management
+                    </li>
+                    <li style="list-style-type: none;">
+                        <i class="far fa-check-circle"></i>
+                        Focus on our patients and deliver high quality service
+                    </li>
+                    <li style="list-style-type: none;">
+                        <i class="far fa-check-circle"></i>
+                        Involve all our partners in our quality improvement activities
+                    </li>
+
+                    <li style="list-style-type: none;">
+                        <i class="far fa-check-circle"></i>
+                        Empower employees to make appropriate decisions
+                    </li>
+                    <li style="list-style-type: none;">
+                        <i class="far fa-check-circle"></i>
+                        Have the highest degree of respect for one another and value diversity
+                    </li>
+                </ul>
+                <p>
+                    Faithful to our tradition, we provide the highest possible
+                    standard of care and treatment in a professional and compassionate
+                    manner to every person who avails of our services.
+                </p>
+                <a class="btn btn-outline-primary a5" th:href="@{/login}">Learn more</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Welcome End -->
+
+<!-- Fixed Background Start -->
+<section class="parallax">
+    <div class="parallax-inner">
+        <h1 class="paral">Our Hospital</h1>
+    </div>
+</section>
+<!-- Fixed Background End -->
+
+<!-- Departments Start -->
+<div class="container-fluid" style="background-color: #f3f9fe; padding-top: 3%; padding-bottom: 3%;">
+    <div class="row welcome text-center">
+        <div class="col-12">
+            <h2 class="display-4" style="margin-bottom: 3%;">Departments</h2>
+        </div>
+        <hr style="height:2px;width:30%;margin-left:35%;color:#0000ff;background-color:#0000ff; margin-bottom: 3%;">
+    </div>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 g-4" style="margin-left: 3%; margin-right: 3%">
+        <div class="col" th:each="department,iter : ${departments}">
+            <div class="card h-100 shadow">
+                <div class="inner">
+                    <img th:src="${department.getDepartmentImage()}" class="card-img-top" alt="...">
+                </div>
+                <div class="card-body" style="margin-left: 3%; margin-right: 3%">
+                    <h2 class="card-title" th:text="${department.getDepartmentName()}">Card title</h2>
+                    <p class="card-text" th:text="${department.getDescription()}"></p>
+                    <a class="btn btn-primary" style="margin-top: 20px; font-size: 20px" th:href="@{/login}" role="button">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Departments End -->
+
+<!-- Doctors Start -->
+<div class="container-fluid" style="background-color: #5db2ff; padding-top: 3%; padding-bottom: 3%;">
+    <div class="row welcome text-center">
+        <div class="col-12">
+            <h2 class="display-4" style="margin-bottom: 3%; color: white">Doctors</h2>
+        </div>
+        <hr style="height:2px;width:30%;margin-left:35%;color:#0000ff;background-color:#0000ff; margin-bottom: 3%;">
+    </div>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 g-4" style="margin-left: 3%; margin-right: 3%">
+        <div class="col" th:each="doctor,iter : ${doctors}">
+            <div class="card h-100 shadow">
+                <div class="inner">
+                    <img th:src="${doctor.getImgUrl()}" class="card-img-top" alt="...">
+                </div>
+                <div class="card-body" style="margin-left: 3%; margin-right: 3%">
+                    <h2 class="card-title" th:text="${doctor.getLastname()} + ' ' + ${doctor.getFirstname()}">Card
+                        title</h2>
+                    <p class="card-text" th:text="${doctor.getSpecialization().toString()}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-5">
+        <a class="btn btn-outline-primary blue" th:href="@{/login}" role="button">More Doctors</a>
+    </div>
+</div>
+<!-- Doctors End -->
+
+<!-- Contacts Start -->
+<div class="container-fluid" style="background-color: #f3f9fe; padding-top: 3%; padding-bottom: 3%;">
+    <div class="row welcome text-center">
+        <div class="col-12">
+            <h2 class="display-4" style="margin-bottom: 3%;">Contact Us</h2>
+        </div>
+        <hr style="height:2px;width:30%;margin-left:35%;color:#0000ff;background-color:#0000ff; margin-bottom: 3%;">
+    </div>
+    <section id="contact" class="contact section-bg justify-content-center">
+        <div class="container justify-content-center">
+            <div class="row" style="margin-left: 10%">
+                <div class="col-lg-5 mt-0 d-flex align-items-stretch aos-init aos-animate">
+                    <div class="info">
+                        <div class="address" style="margin-top: 0!important;">
+                            <i class="bi bi-geo-alt"></i>
+                            <h4>Location:</h4>
+                            <p>Khreshchatyk St., 24, Kyiv</p>
+                        </div>
+                        <div class="email">
+                            <i class="bi bi-envelope"></i>
+                            <h4>Email:</h4>
+                            <p>doctor.all.project@gmail.com</p>
+                        </div>
+
+                        <div class="phone">
+                            <i class="bi bi-phone"></i>
+                            <h4>Call:</h4>
+                            <p>+38 (098) 123-45-67</p>
+                        </div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2540.574758565446!2d30.520134315731372!3d50.449020979475264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4ce51271776ad%3A0x42376a6bcdcb82f4!2z0YPQuy4g0JrRgNC10YnQsNGC0LjQuiwgMjQsINCa0LjQtdCyLCAwMjAwMA!5e0!3m2!1sru!2sua!4v1643206865316!5m2!1sru!2sua"
+                                frameborder="0" style="border:0; width: 100%; height: 290px;"
+                                allowfullscreen=""></iframe>
+                    </div>
+
+                </div>
+                <div class="col-lg-7 mt-3 mt-lg-3 d-flex align-items-stretch aos-init aos-animate">
+                    <form action="#" th:action="@{/contact}" th:object="${contact}"
+                          method="post">
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="name">Your Name</label>
+                                <input th:field="*{name}" type="text" name="name" class="form-control" id="name"
+                                       required="">
+                            </div>
+                            <div class="form-group col-md-6 mt-3 mt-md-0">
+                                <label for="name">Your Email</label>
+                                <input th:field="*{mail}" type="email" class="form-control" name="email" id="email"
+                                       required="">
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="name">Subject</label>
+                            <input th:field="*{subject}" type="text" class="form-control" name="subject" id="subject"
+                                   required="">
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="name">Message</label>
+                            <textarea th:field="*{text}" class="form-control" name="message" rows="10"
+                                      required=""></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-2">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- Contacts End -->
+
+<!-- Footer Start -->
+<footer class="text-center text-lg-start text-muted" style="background-color: #1F1F1F">
+    <!-- Section: Social media -->
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
+             style="border-bottom: #1F1F1F!important;">
+        <div class="me-5 d-none d-lg-block"></div>
+        <div></div>
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Links  -->
+    <section class="">
+        <div class="container text-center text-md-start mt-5">
+            <!-- Grid row -->
+            <div class="row mt-3">
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <!-- Content -->
+                    <h6 class="text-uppercase fw-bold mb-4" style="color: #F8F9FB">
+                        <i class="fas fa-heartbeat"></i>
+                        DoctorAll
+                    </h6>
+                    <p style="color: rgba(248,249,251,0.69); text-align:left">
+                        The clinic will help you find your health.
+                        Thanks to the skill of our doctors,
+                        the quality of service is always at its best.
+                    </p>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4" style="color: #F8F9FB">
+                        Departments
+                    </h6>
+                    <p style="color: rgba(248,249,251,0.69)">
+                        <a href="#" class="text-decoration-none text-decoration-none text-reset">Dental</a>
+                    </p>
+                    <p style="color: rgba(248,249,251,0.69)">
+                        <a href="#" class="text-decoration-none text-reset">Cardiology</a>
+                    </p>
+                    <p style="color: rgba(248,249,251,0.69)">
+                        <a href="#" class="text-decoration-none text-reset">Psychology</a>
+                    </p>
+                    <p style="color: rgba(248,249,251,0.69)">
+                        <a href="#" class="text-decoration-none text-reset">Orthopedics</a>
+                    </p>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4" style="color: #F8F9FB">
+                        Useful links
+                    </h6>
+                    <p style="color: rgba(248,249,251,0.69)">
+                        <a href="#" class="text-decoration-none text-reset">Pricing</a>
+                    </p>
+                    <p style="color: rgba(248,249,251,0.69)">
+                        <a href="#" class="text-decoration-none text-reset">About us</a>
+                    </p>
+                    <p style="color: rgba(248,249,251,0.69)">
+                        <a href="#" class="text-decoration-none text-reset">Contact us</a>
+                    </p>
+                    <p style="color: rgba(248,249,251,0.69)">
+                        <a href="#" class="text-decoration-none text-reset">Help</a>
+                    </p>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4" style="color: #F8F9FB">
+                        Contact
+                    </h6>
+                    <p style="color: rgba(248,249,251,0.69)"><i class="fas fa-home me-3"></i> Khreshchatyk St., 24, Kyiv
+                    </p>
+                    <p style="color: rgba(248,249,251,0.69)">
+                        <i class="fas fa-envelope me-3"></i>
+                        doctor.all.project@gmail.com
+                    </p>
+                    <p style="color: rgba(248,249,251,0.69)"><i class="fas fa-phone me-3"></i> +38 (098) 123-45-67</p>
+                    <p style="color: rgba(248,249,251,0.69)"><i class="fas fa-print me-3"></i> +38 (098) 123-45-67</p>
+                </div>
+                <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+        </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Section: Empty -->
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
+             style="border-bottom: #1F1F1F!important;">
+        <div class="me-5 d-none d-lg-block"></div>
+        <div></div>
+    </section>
+    <!-- Section: Empty -->
+
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: black;">
+        <p style="color: rgba(248,249,251,0.69)">
+            Copyright ©
+            <script>document.write(new Date().getFullYear());</script>
+            Final Project | Made with
+            <i class="far fa-heart" style="color: blue!important;"></i>
+            by Ihor Cherednychenko & Lilya Pohorielova
+        </p>
+    </div>
+    <!-- Copyright -->
+</footer>
+<!-- Footer End -->
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

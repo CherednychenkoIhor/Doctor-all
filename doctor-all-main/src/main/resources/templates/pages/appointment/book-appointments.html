@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/patient_layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient - Book An Appointment</title>
+
+    <script>
+        function getDoctorsBySpecialization() {
+            $("#doctorsContent").empty();
+            $("#appDate").empty();
+            $("#time").empty();
+            $('#but_book').attr('disabled', 'disabled');
+            $("#doctorsContent").append("<option selected disabled hidden>---</option>");
+            var specialization = $("#specialization").val();
+            $.get("/patient/get_doctors/" + specialization, function (data) {
+                data.forEach(function (item, i) {
+                    if (i % 2 === 0) {
+                        var option = "<option value = " + data[i] + ">" + data[++i] + "</option>";
+                        $("#doctorsContent").append(option);
+                    }
+                });
+            });
+        };
+        function getDatesByDoctor() {
+            $("#appDate").empty();
+            $("#time").empty();
+            var doctor = $("#doctorsContent").val();
+            $("#appDate").append("<option selected disabled hidden>---</option>");
+            $.get("/patient/get_dates/" + doctor, function (data) {
+                data.forEach(function (item, i) {
+                    var option = "<option value = " + item + ">" + item + "</option>";
+                    $("#appDate").append(option);
+                });
+            });
+            $('#but_book').attr('disabled', 'disabled');
+        };
+        function getTimesByDate() {
+            $("#time").empty();
+            var doctor = $("#doctorsContent").val();
+            var date = $("#appDate").val();
+            $("#time").append("<option selected disabled hidden>---</option>");
+            $.get("/patient/get_times/" + doctor + "/" + date, function (data) {
+                data.forEach(function (item, i) {
+                    var option = "<option value = " + item + ">" + item + "</option>";
+                    $("#time").append(option);
+                    console.log("<option value = " + item + ">" + item + "</option>");
+                });
+            });
+        };
+        function timeOnChange() {
+            if ($("#time").val() !== "---") {
+                $("#but_book").prop('disabled', false);
+            } else {
+                $('#but_book').attr('disabled','disabled');
+            }
+        }
+    </script>
+</head>
+<body>
+<div layout:fragment="patient_content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mt-2">
+                <div class="card-header">
+                    <h4>New Appointment</h4>
+                </div>
+                <div class="card-body">
+                    <form action="#" th:action="@{/patient/book_appointment}" th:object="${appointmentForm}"
+                          method="POST">
+                        <div class="form-outline form-white mb-4">
+                            <label class="form-label" for="specialization">Specialization</label>
+                            <select class="form-control" id="specialization" onchange="getDoctorsBySpecialization()">
+                                <option selected disabled hidden style="color:gray">---</option>
+                                <option th:each="type : ${T(ua.com.alevel.persistence.type.DoctorSpecialization).values()}"
+                                        th:value="${T(ua.com.alevel.persistence.type.DoctorSpecialization).valueOf(type).ordinal()}"
+                                        th:text="${type}">
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="form-outline form-white mb-4">
+                            <label class="form-label" for="doctorsContent">Doctors</label>
+                            <select class="form-control" id="doctorsContent" onchange="getDatesByDoctor()"
+                                    th:field="*{doctor}">
+                            </select>
+                        </div>
+
+                        <div class="form-outline form-white mb-4">
+                            <label class="form-label" for="appDate">Available Date</label>
+                            <select class="form-control" id="appDate" onchange="getTimesByDate()"
+                                    th:field="*{date}">
+                            </select>
+                        </div>
+
+                        <div class="form-outline form-white mb-4">
+                            <label class="form-label" for="time">Available Time</label>
+                            <select class="form-control" id="time" onchange="timeOnChange()"
+                                    th:field="*{time}">
+                            </select>
+                        </div>
+
+                        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                            <div class="btn-group me-2" role="group" aria-label="Second group">
+                                <a th:href="@{/patient/appointments}" type="button" class="btn btn-primary">Back</a>
+                            </div>
+                            <div class="btn-group me-2" role="group" aria-label="Third group">
+                                <button type="submit" class="btn btn-primary" id="but_book" disabled="disabled">Book</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
